@@ -51,11 +51,11 @@ function loadWidget(config) {
 			Live2D.captureFrame = true;
 		});
 		document.querySelector("#waifu-tool .fa-info-circle").addEventListener("click", () => {
-			open("https://github.com/stevenjoezhang/live2d-widget");
+			open("https://github.com/TTTTTony32/live2d-widget");
 		});
 		document.querySelector("#waifu-tool .fa-times").addEventListener("click", () => {
 			localStorage.setItem("waifu-display", Date.now());
-			showMessage("愿你有一天能与重要的人重逢。", 2000, 11);
+			showMessage("期待和尼的再次相遇～！", 2000, 11);
 			document.getElementById("waifu").style.bottom = "-500px";
 			setTimeout(() => {
 				document.getElementById("waifu").style.display = "none";
@@ -65,13 +65,13 @@ function loadWidget(config) {
 		var devtools = () => {};
 		console.log("%c", devtools);
 		devtools.toString = () => {
-			showMessage("哈哈，你打开了控制台，是想要看看我的小秘密吗？", 6000, 9);
+			showMessage("欸，你打开了控制台，是想要看看我的小秘密吗？", 6000, 9);
 		};
 		window.addEventListener("copy", () => {
 			showMessage("你都复制了些什么呀，转载要记得加上出处哦！", 6000, 9);
 		});
 		window.addEventListener("visibilitychange", () => {
-			if (!document.hidden) showMessage("哇，你终于回来了～", 6000, 9);
+			if (!document.hidden) showMessage("你终于回来了～", 6000, 9);
 		});
 	})();
 
@@ -90,13 +90,13 @@ function loadWidget(config) {
 		} else if (document.referrer !== "") {
 			var referrer = new URL(document.referrer),
 				domain = referrer.hostname.split(".")[1];
-			if (location.hostname === referrer.hostname) text = `欢迎阅读<span>「${document.title.split(" - ")[0]}」</span>`;
-			else if (domain === "baidu") text = `Hello！来自 百度搜索 的朋友<br>你是搜索 <span>${referrer.search.split("&wd=")[1].split("&")[0]}</span> 找到的我吗？`;
-			else if (domain === "so") text = `Hello！来自 360搜索 的朋友<br>你是搜索 <span>${referrer.search.split("&q=")[1].split("&")[0]}</span> 找到的我吗？`;
-			else if (domain === "google") text = `Hello！来自 谷歌搜索 的朋友<br>欢迎阅读<span>「${document.title.split(" - ")[0]}」</span>`;
+			if (location.hostname === referrer.hostname) text = `欢迎来到<span>「Tony的介绍页」</span>`;
+			else if (domain === "baidu") text = `Hello！来自 百度 的朋友<br>你是搜索 <span>${referrer.search.split("&wd=")[1].split("&")[0]}</span> 找到的我吗？`;
+			else if (domain === "so") text = `Hello！来自 360 的朋友<br>你是搜索 <span>${referrer.search.split("&q=")[1].split("&")[0]}</span> 找到的我吗？`;
+			else if (domain === "google") text = `Hello！来自 谷歌 的朋友<br>, 欢迎来到<span>「Tony的介绍页」</span>`;
 			else text = `Hello！来自 <span>${referrer.hostname}</span> 的朋友`;
 		} else {
-			text = `欢迎阅读<span>「${document.title.split(" - ")[0]}」</span>`;
+			text = `欢迎来到<span>「Tony的介绍页」</span>`;
 		}
 		showMessage(text, 7000, 8);
 	})();
@@ -159,8 +159,8 @@ function loadWidget(config) {
 			modelTexturesId = localStorage.getItem("modelTexturesId");
 		if (modelId === null) {
 			// 首次访问加载 指定模型 的 指定材质
-			var modelId = 1, // 模型 ID
-				modelTexturesId = 53; // 材质 ID
+			var modelId = 3, // 模型 ID
+				modelTexturesId = 0; // 材质 ID
 		}
 		loadModel(modelId, modelTexturesId);
 		fetch(waifuPath)
@@ -259,7 +259,7 @@ function initWidget(config, apiPath = "/") {
 		};
 	}
 	document.body.insertAdjacentHTML("beforeend", `<div id="waifu-toggle">
-			<span>看板娘</span>
+			<span>呼出看板娘</span>
 		</div>`);
 	var toggle = document.getElementById("waifu-toggle");
 	toggle.addEventListener("click", () => {
